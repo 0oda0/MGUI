@@ -1,22 +1,22 @@
-# Альтернативный способ
+# services/audio_controller.py
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from comtypes import CLSCTX_ALL
 
 class AudioController:
     def __init__(self):
-        sessions = AudioUtilities.GetAllSessions()
-        # Находим устройство вывода
-        self.volume = None
-        for session in sessions:
-            if session.Process and session.Process.name() == "SystemSounds":
-                # Это не то
-                continue
-        # Проще: получить дефолтное устройство
         devices = AudioUtilities.GetSpeakers()
-        self.volume = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-        # Если выше падает, пробуем через IMMDevice
-        if not self.volume:
-            from pycaw.pycaw import IMMDeviceEnumerator
-            enumerator = IMMDeviceEnumerator()
-            device = enumerator.GetDefaultAudioEndpoint(0, 0)
-            self.volume = device.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+        interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+        self.volume = interface.QueryInterface(IAudioEndpointVolume)
+
+    def get_system_volume(self):
+        return int(self.volume.GetMasterVolumeLevelScalar() * 100)
+
+    def set_system_volume(self, value: int):
+        self.volume.SetMasterVolumeLevelScalar(value / 100.0, None)
+
+    def get_mic_volume(self):
+        # Упрощённо — можно реализовать позже через MicrophoneEnumerator
+        return 50
+
+    def set_mic_volume(self, value: int):
+        pass

@@ -1,4 +1,4 @@
-# main_window.py (обновлённый)
+# main_window.py
 from PyQt6.QtWidgets import QMainWindow, QHBoxLayout, QWidget, QStackedWidget
 from PyQt6.QtCore import Qt
 from widgets.sidebar import Sidebar
@@ -9,8 +9,8 @@ from config_manager import ConfigManager
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("MGUI v0.5 — Игровой режим")
-        self.setGeometry(100, 100, 900, 600)
+        self.setWindowTitle("MGUI v0.7 — Работа + Игры + Система")
+        self.setGeometry(100, 100, 950, 650)
 
         self.config = ConfigManager()
 
@@ -26,7 +26,7 @@ class MainWindow(QMainWindow):
         self.stack = QStackedWidget()
         self.work_widget = WorkModeWidget()
         self.game_widget = GameModeWidget()
-        self.game_mode_widget = self.game_widget  # чтобы был доступ
+        self.game_mode_widget = self.game_widget
         self.stack.addWidget(self.work_widget)
         self.stack.addWidget(self.game_widget)
 

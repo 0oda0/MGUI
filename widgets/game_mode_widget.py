@@ -1,10 +1,11 @@
-# widgets/game_mode_widget.py (дополненный)
+# widgets/game_mode_widget.py
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton,
                              QHBoxLayout, QTabWidget)
 from PyQt6.QtCore import Qt, pyqtSignal
 from database.game_stats_db import GameStatsDB
 from services.game_tracker import GameTracker
 from widgets.news_widget import NewsWidget
+from widgets.top_processes_widget import TopProcessesWidget  # НОВЫЙ ИМПОРТ
 from windows.sound_window import SoundWindow
 from windows.brightness_window import BrightnessWindow
 from windows.apps_window import AppsWindow
@@ -18,7 +19,6 @@ class GameModeWidget(QWidget):
         self.tracker = GameTracker()
         self.current_game = None
 
-        # Окна-контроллеры (будут созданы при первом вызове)
         self.sound_win = None
         self.brightness_win = None
         self.apps_win = None
@@ -30,7 +30,7 @@ class GameModeWidget(QWidget):
     def init_ui(self):
         layout = QVBoxLayout(self)
 
-        # Верхняя панель с кнопками управления
+        # Кнопки быстрого доступа
         btn_layout = QHBoxLayout()
         sound_btn = QPushButton("🎵 Звук")
         sound_btn.clicked.connect(self.open_sound_window)
@@ -43,7 +43,6 @@ class GameModeWidget(QWidget):
         btn_layout.addWidget(apps_btn)
         layout.addLayout(btn_layout)
 
-        # Основная информация об игре
         self.current_game_label = QLabel("Текущая игра: Не игра")
         self.current_game_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.current_game_label.setStyleSheet("font-size: 14px; margin: 5px;")
@@ -52,15 +51,22 @@ class GameModeWidget(QWidget):
         self.stats_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.stats_label.setStyleSheet("font-size: 12px; margin: 5px;")
 
-        # Вкладки для заметок и новостей
+        # Вкладки
         self.tab_widget = QTabWidget()
+
+        # Вкладка "Заметки"
         self.notes_edit = QTextEdit()
         self.notes_edit.setPlaceholderText("Введите заметки по игре...")
         self.notes_edit.textChanged.connect(self.on_notes_changed)
-        self.tab_widget.addTab(self.notes_edit, "Заметки")
+        self.tab_widget.addTab(self.notes_edit, "📝 Заметки")
 
+        # Вкладка "Новости"
         self.news_widget = NewsWidget()
-        self.tab_widget.addTab(self.news_widget, "Новости")
+        self.tab_widget.addTab(self.news_widget, "📰 Новости")
+
+        # Вкладка "Система" – топ-5 процессов
+        self.top_processes = TopProcessesWidget()
+        self.tab_widget.addTab(self.top_processes, "⚙️ Система")
 
         layout.addWidget(self.current_game_label)
         layout.addWidget(self.stats_label)
@@ -101,7 +107,6 @@ class GameModeWidget(QWidget):
             self.notes_edit.blockSignals(False)
             self.db.start_session(game_name)
             self.refresh_stats()
-            # Обновляем новости
             self.news_widget.set_game(game_name)
         else:
             self.current_game_label.setText("Текущая игра: Не игра")
@@ -109,7 +114,7 @@ class GameModeWidget(QWidget):
             self.notes_edit.clear()
             self.notes_edit.blockSignals(False)
             self.stats_label.setText("За последнюю неделю: 0 ч 0 мин")
-            self.news_widget.set_game("")  # очищаем новости
+            self.news_widget.set_game("")
 
     def on_notes_changed(self):
         if self.current_game:

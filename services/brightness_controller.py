@@ -2,23 +2,24 @@
 import screen_brightness_control as sbc
 import logging
 
+logger = logging.getLogger(__name__)
+
 class BrightnessController:
     @staticmethod
     def get_brightness():
         try:
-            values = sbc.get_brightness()
-            if values and len(values) > 0:
-                return values[0]
+            brightness = sbc.get_brightness()
+            if brightness and len(brightness) > 0:
+                return brightness[0]
             else:
-                # Если список пуст, пробуем получить для основного дисплея по-другому
-                return sbc.get_brightness(display=0) if sbc.list_monitors() else 50
+                return 50  # значение по умолчанию
         except Exception as e:
-            logging.error(f"Ошибка получения яркости: {e}")
-            return 50  # значение по умолчанию
+            logger.error(f"Ошибка получения яркости: {e}")
+            return 50
 
     @staticmethod
     def set_brightness(value: int):
         try:
             sbc.set_brightness(value)
         except Exception as e:
-            logging.error(f"Ошибка установки яркости: {e}")
+            logger.error(f"Ошибка установки яркости: {e}")
