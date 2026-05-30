@@ -22,11 +22,33 @@ class TrayIcon(QSystemTrayIcon):
 
         self.menu.addAction(show_action)
         self.menu.addAction(quit_action)
+        self.menu.addSeparator()
+        sound_action = QAction("🔊 Звук", self)
+        sound_action.triggered.connect(self.open_sound)
+        brightness_action = QAction("🔆 Яркость", self)
+        brightness_action.triggered.connect(self.open_brightness)
+        apps_action = QAction("🖥️ Окна и приложения", self)
+        apps_action.triggered.connect(self.open_apps)
+        self.menu.addAction(sound_action)
+        self.menu.addAction(brightness_action)
+        self.menu.addAction(apps_action)
 
         self.setContextMenu(self.menu)
         self.activated.connect(self.on_tray_activated)
 
         self.show()  # Теперь иконка точно есть
+
+    def open_sound(self):
+        if hasattr(self.main_window, 'game_mode_widget'):
+            self.main_window.game_mode_widget.open_sound_window()
+
+    def open_brightness(self):
+        if hasattr(self.main_window, 'game_mode_widget'):
+            self.main_window.game_mode_widget.open_brightness_window()
+
+    def open_apps(self):
+        if hasattr(self.main_window, 'game_mode_widget'):
+            self.main_window.game_mode_widget.open_apps_window()
 
     def show_window(self):
         self.main_window.show()

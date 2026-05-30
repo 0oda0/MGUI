@@ -1,8 +1,13 @@
-# widgets/game_mode_widget.py (исправленный, полный)
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton
+# widgets/game_mode_widget.py (дополненный)
+from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton,
+                             QHBoxLayout, QTabWidget)
 from PyQt6.QtCore import Qt, pyqtSignal
 from database.game_stats_db import GameStatsDB
 from services.game_tracker import GameTracker
+from widgets.news_widget import NewsWidget
+from windows.sound_window import SoundWindow
+from windows.brightness_window import BrightnessWindow
+from windows.apps_window import AppsWindow
 
 class GameModeWidget(QWidget):
     game_updated = pyqtSignal(str)
@@ -13,6 +18,11 @@ class GameModeWidget(QWidget):
         self.tracker = GameTracker()
         self.current_game = None
 
+        # Окна-контроллеры (будут созданы при первом вызове)
+        self.sound_win = None
+        self.brightness_win = None
+        self.apps_win = None
+
         self.init_ui()
         self.tracker.game_changed.connect(self.on_game_changed)
         self.tracker.start()
@@ -20,10 +30,20 @@ class GameModeWidget(QWidget):
     def init_ui(self):
         layout = QVBoxLayout(self)
 
-        title = QLabel("Игровой режим — Трекер игр")
-        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet("font-size: 16px; font-weight: bold; margin: 10px;")
+        # Верхняя панель с кнопками управления
+        btn_layout = QHBoxLayout()
+        sound_btn = QPushButton("🎵 Звук")
+        sound_btn.clicked.connect(self.open_sound_window)
+        brightness_btn = QPushButton("☀️ Яркость")
+        brightness_btn.clicked.connect(self.open_brightness_window)
+        apps_btn = QPushButton("🪟 Окна и приложения")
+        apps_btn.clicked.connect(self.open_apps_window)
+        btn_layout.addWidget(sound_btn)
+        btn_layout.addWidget(brightness_btn)
+        btn_layout.addWidget(apps_btn)
+        layout.addLayout(btn_layout)
 
+        # Основная информация об игре
         self.current_game_label = QLabel("Текущая игра: Не игра")
         self.current_game_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.current_game_label.setStyleSheet("font-size: 14px; margin: 5px;")
@@ -32,50 +52,64 @@ class GameModeWidget(QWidget):
         self.stats_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.stats_label.setStyleSheet("font-size: 12px; margin: 5px;")
 
-        notes_label = QLabel("Заметки по текущей игре:")
-        notes_label.setStyleSheet("font-weight: bold; margin-top: 15px;")
+        # Вкладки для заметок и новостей
+        self.tab_widget = QTabWidget()
         self.notes_edit = QTextEdit()
         self.notes_edit.setPlaceholderText("Введите заметки по игре...")
         self.notes_edit.textChanged.connect(self.on_notes_changed)
+        self.tab_widget.addTab(self.notes_edit, "Заметки")
 
-        refresh_btn = QPushButton("Обновить статистику")
-        refresh_btn.clicked.connect(self.refresh_stats)
+        self.news_widget = NewsWidget()
+        self.tab_widget.addTab(self.news_widget, "Новости")
 
-        layout.addWidget(title)
         layout.addWidget(self.current_game_label)
         layout.addWidget(self.stats_label)
-        layout.addWidget(notes_label)
-        layout.addWidget(self.notes_edit)
-        layout.addWidget(refresh_btn, alignment=Qt.AlignmentFlag.AlignCenter)
+        layout.addWidget(self.tab_widget)
         layout.addStretch()
+
+    def open_sound_window(self):
+        if self.sound_win is None:
+            self.sound_win = SoundWindow()
+        self.sound_win.show()
+        self.sound_win.raise_()
+
+    def open_brightness_window(self):
+        if self.brightness_win is None:
+            self.brightness_win = BrightnessWindow()
+        self.brightness_win.show()
+        self.brightness_win.raise_()
+
+    def open_apps_window(self):
+        if self.apps_win is None:
+            self.apps_win = AppsWindow()
+        self.apps_win.show()
+        self.apps_win.raise_()
 
     def on_game_changed(self, game_name: str):
         if self.current_game == game_name:
             return
-        # Завершаем сессию предыдущей игры
         if self.current_game:
             self.db.end_current_session()
-        # Сохраняем заметки предыдущей игры
-        if self.current_game:
             self.db.set_note(self.current_game, self.notes_edit.toPlainText())
 
         self.current_game = game_name
         if game_name:
             self.current_game_label.setText(f"Текущая игра: {game_name}")
-            # Загружаем заметки для новой игры
             note = self.db.get_note(game_name)
             self.notes_edit.blockSignals(True)
             self.notes_edit.setPlainText(note)
             self.notes_edit.blockSignals(False)
-            # Начинаем сессию новой игры
             self.db.start_session(game_name)
             self.refresh_stats()
+            # Обновляем новости
+            self.news_widget.set_game(game_name)
         else:
             self.current_game_label.setText("Текущая игра: Не игра")
             self.notes_edit.blockSignals(True)
             self.notes_edit.clear()
             self.notes_edit.blockSignals(False)
             self.stats_label.setText("За последнюю неделю: 0 ч 0 мин")
+            self.news_widget.set_game("")  # очищаем новости
 
     def on_notes_changed(self):
         if self.current_game:
@@ -89,7 +123,3 @@ class GameModeWidget(QWidget):
             self.stats_label.setText(f"За последнюю неделю: {hours} ч {minutes} мин")
         else:
             self.stats_label.setText("За последнюю неделю: 0 ч 0 мин")
-
-    def closeEvent(self, event):
-        # При закрытии виджета не останавливаем трекер, он общий
-        event.accept()

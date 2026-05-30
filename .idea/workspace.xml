@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6736ef82-3624-483a-b33a-a15feddf70ce" name="Changes" comment="v0.4: Added tasks table with importance, urgency, completion, sorting, and red highlighting for urgent tasks">
-      <change afterPath="$PROJECT_DIR$/database/game_stats_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/game_session.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/game_tracker.py" afterDir="false" />
+    <list default="true" id="6736ef82-3624-483a-b33a-a15feddf70ce" name="Changes" comment="v0.5: Added game tracking service (active window detection), game session logging, weekly stats, and notes per game.">
+      <change afterPath="$PROJECT_DIR$/dialogs/app_picker_dialog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/audio_controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/brightness_controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/news_fetcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/widgets/news_widget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/windows/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/windows/apps_window.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/windows/brightness_window.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/windows/sound_window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tray_icon.py" beforeDir="false" afterPath="$PROJECT_DIR$/tray_icon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/widgets/game_mode_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/game_mode_widget.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780156736284</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="v0.5: Added game tracking service (active window detection), game session logging, weekly stats, and notes per game.">
+      <option name="closed" value="true" />
+      <created>1780157070984</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1780157070984</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -150,6 +164,7 @@
     <MESSAGE value="v0.2: Added sidebar, work/game mode switching, config persistence" />
     <MESSAGE value="v0.3: Added work timer with circular progress, database storage, daily stats" />
     <MESSAGE value="v0.4: Added tasks table with importance, urgency, completion, sorting, and red highlighting for urgent tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.4: Added tasks table with importance, urgency, completion, sorting, and red highlighting for urgent tasks" />
+    <MESSAGE value="v0.5: Added game tracking service (active window detection), game session logging, weekly stats, and notes per game." />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.5: Added game tracking service (active window detection), game session logging, weekly stats, and notes per game." />
   </component>
 </project>

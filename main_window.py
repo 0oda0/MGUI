@@ -26,6 +26,7 @@ class MainWindow(QMainWindow):
         self.stack = QStackedWidget()
         self.work_widget = WorkModeWidget()
         self.game_widget = GameModeWidget()
+        self.game_mode_widget = self.game_widget  # чтобы был доступ
         self.stack.addWidget(self.work_widget)
         self.stack.addWidget(self.game_widget)
 
