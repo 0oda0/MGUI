@@ -1,4 +1,4 @@
-# main.py
+# main.py (обновлённый)
 import sys
 import ctypes
 from PyQt6.QtWidgets import QApplication
@@ -29,7 +29,6 @@ def main():
     config = ConfigManager()
     window = MainWindow()
 
-    # Восстанавливаем геометрию окна, если есть
     geom = config.get("window_geometry")
     if geom:
         window.setGeometry(geom["x"], geom["y"], geom["width"], geom["height"])
@@ -39,6 +38,14 @@ def main():
     tray = TrayIcon(window)
 
     window.show()
+
+    # Остановка трекера при завершении приложения
+    def cleanup():
+        if hasattr(window, 'game_mode_widget') and hasattr(window.game_mode_widget, 'tracker'):
+            window.game_mode_widget.tracker.stop()
+
+    app.aboutToQuit.connect(cleanup)
+
     sys.exit(app.exec())
 
 if __name__ == "__main__":
