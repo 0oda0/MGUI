@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6736ef82-3624-483a-b33a-a15feddf70ce" name="Changes" comment="v0.2: Added sidebar, work/game mode switching, config persistence">
-      <change afterPath="$PROJECT_DIR$/database/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/db_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/work_session.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/timer_widget.py" afterDir="false" />
+    <list default="true" id="6736ef82-3624-483a-b33a-a15feddf70ce" name="Changes" comment="v0.3: Added work timer with circular progress, database storage, daily stats">
+      <change afterPath="$PROJECT_DIR$/database/tasks_db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dialogs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dialogs/task_edit_dialog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/task.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/widgets/tasks_table.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mgui.db" beforeDir="false" afterPath="$PROJECT_DIR$/mgui.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets/work_mode_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/work_mode_widget.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +55,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.main.executor": "Run",
+    "Python.main.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true"
@@ -119,12 +122,21 @@
       <option name="project" value="LOCAL" />
       <updated>1780156008886</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="v0.3: Added work timer with circular progress, database storage, daily stats">
+      <option name="closed" value="true" />
+      <created>1780156293793</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1780156293793</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v0.1: Minimal GUI with system tray and admin rights (fixed tray icon)" />
     <MESSAGE value="v0.2: Added sidebar, work/game mode switching, config persistence" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.2: Added sidebar, work/game mode switching, config persistence" />
+    <MESSAGE value="v0.3: Added work timer with circular progress, database storage, daily stats" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.3: Added work timer with circular progress, database storage, daily stats" />
   </component>
 </project>
