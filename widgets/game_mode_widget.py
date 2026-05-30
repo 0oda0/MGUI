@@ -30,18 +30,10 @@ class GameModeWidget(QWidget):
     def init_ui(self):
         layout = QVBoxLayout(self)
 
-        # Кнопки быстрого доступа
-        btn_layout = QHBoxLayout()
-        sound_btn = QPushButton("🎵 Звук")
-        sound_btn.clicked.connect(self.open_sound_window)
-        brightness_btn = QPushButton("☀️ Яркость")
-        brightness_btn.clicked.connect(self.open_brightness_window)
-        apps_btn = QPushButton("🪟 Окна и приложения")
-        apps_btn.clicked.connect(self.open_apps_window)
-        btn_layout.addWidget(sound_btn)
-        btn_layout.addWidget(brightness_btn)
-        btn_layout.addWidget(apps_btn)
-        layout.addLayout(btn_layout)
+        # Кнопка открытия центра управления
+        control_btn = QPushButton("⚙️ Центр управления")
+        control_btn.clicked.connect(self.open_system_control)
+        layout.addWidget(control_btn, alignment=Qt.AlignmentFlag.AlignCenter)
 
         self.current_game_label = QLabel("Текущая игра: Не игра")
         self.current_game_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -90,6 +82,11 @@ class GameModeWidget(QWidget):
             self.apps_win = AppsWindow()
         self.apps_win.show()
         self.apps_win.raise_()
+
+    def open_system_control(self):
+        from windows.system_control_window import SystemControlWindow
+        self.control_win = SystemControlWindow()
+        self.control_win.show()
 
     def on_game_changed(self, game_name: str):
         if self.current_game == game_name:

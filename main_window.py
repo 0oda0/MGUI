@@ -1,16 +1,17 @@
-# main_window.py
+# main_window.py (обновлённый)
 from PyQt6.QtWidgets import QMainWindow, QHBoxLayout, QWidget, QStackedWidget
 from PyQt6.QtCore import Qt
 from widgets.sidebar import Sidebar
 from widgets.work_mode_widget import WorkModeWidget
 from widgets.game_mode_widget import GameModeWidget
+from widgets.quick_panel import QuickPanel
 from config_manager import ConfigManager
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("MGUI v0.7 — Работа + Игры + Система")
-        self.setGeometry(100, 100, 950, 650)
+        self.setWindowTitle("MGUI v0.9 — Центр управления")
+        self.setGeometry(100, 100, 1200, 700)
 
         self.config = ConfigManager()
 
@@ -30,8 +31,11 @@ class MainWindow(QMainWindow):
         self.stack.addWidget(self.work_widget)
         self.stack.addWidget(self.game_widget)
 
+        self.quick_panel = QuickPanel()  # новая правая панель
+
         main_layout.addWidget(self.sidebar)
         main_layout.addWidget(self.stack, 1)
+        main_layout.addWidget(self.quick_panel)
 
         saved_mode = self.config.get("current_mode", "work")
         self.switch_mode(saved_mode)

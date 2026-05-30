@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6736ef82-3624-483a-b33a-a15feddf70ce" name="Changes" comment="v0.6: Added game news (RSS), separate windows for sound control, circular brightness control, apps/windows manager (open windows list, pinned apps). Integrated into game mode.">
-      <change afterPath="$PROJECT_DIR$/widgets/top_processes_widget.py" afterDir="false" />
+    <list default="true" id="6736ef82-3624-483a-b33a-a15feddf70ce" name="Changes" comment="v0.7: Added top-5 processes monitor (CPU/Memory) in game mode system tab, fixed audio controller and brightness error handling, improved UI. Full game mode with notes, news, system monitor.">
+      <change afterPath="$PROJECT_DIR$/services/pinned_apps_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/widgets/pinned_apps_widget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/widgets/quick_panel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/windows/system_control_window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dialogs/app_picker_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/dialogs/app_picker_dialog.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/audio_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/audio_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/brightness_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/brightness_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets/game_mode_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/game_mode_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets/top_processes_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/top_processes_widget.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780164582409</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="v0.7: Added top-5 processes monitor (CPU/Memory) in game mode system tab, fixed audio controller and brightness error handling, improved UI. Full game mode with notes, news, system monitor.">
+      <option name="closed" value="true" />
+      <created>1780164777457</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1780164777457</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -164,6 +177,7 @@
     <MESSAGE value="v0.4: Added tasks table with importance, urgency, completion, sorting, and red highlighting for urgent tasks" />
     <MESSAGE value="v0.5: Added game tracking service (active window detection), game session logging, weekly stats, and notes per game." />
     <MESSAGE value="v0.6: Added game news (RSS), separate windows for sound control, circular brightness control, apps/windows manager (open windows list, pinned apps). Integrated into game mode." />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.6: Added game news (RSS), separate windows for sound control, circular brightness control, apps/windows manager (open windows list, pinned apps). Integrated into game mode." />
+    <MESSAGE value="v0.7: Added top-5 processes monitor (CPU/Memory) in game mode system tab, fixed audio controller and brightness error handling, improved UI. Full game mode with notes, news, system monitor." />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.7: Added top-5 processes monitor (CPU/Memory) in game mode system tab, fixed audio controller and brightness error handling, improved UI. Full game mode with notes, news, system monitor." />
   </component>
 </project>
