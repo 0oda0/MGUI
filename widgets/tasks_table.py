@@ -4,6 +4,7 @@ from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QPushButton, QTableWidget,
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QFont
 from database.tasks_db import TasksDB
+from logger import app_logger
 
 class TasksTable(QWidget):
     task_changed = pyqtSignal()  # сигнал для обновления внешней статистики при изменении
@@ -127,6 +128,7 @@ class TasksTable(QWidget):
             if data["title"].strip():
                 self.db.add_task(data["title"], data["important"], data["urgent"])
                 self.load_tasks()
+                app_logger.info(f"Добавлена задача: {data['title']}")
 
     def edit_task(self):
         task_id = self.get_current_task_id()
@@ -142,6 +144,7 @@ class TasksTable(QWidget):
                 if data["title"].strip():
                     self.db.update_task(task_id, data["title"], data["important"], data["urgent"], task["completed"])
                     self.load_tasks()
+        app_logger.info(f"Изменена задача ID {task_id}")
 
     def delete_task(self):
         task_id = self.get_current_task_id()
@@ -149,3 +152,4 @@ class TasksTable(QWidget):
             return
         self.db.delete_task(task_id)
         self.load_tasks()
+        app_logger.info(f"Удалена задача ID {task_id}")

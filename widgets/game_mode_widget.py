@@ -5,10 +5,11 @@ from PyQt6.QtCore import Qt, pyqtSignal
 from database.game_stats_db import GameStatsDB
 from services.game_tracker import GameTracker
 from widgets.news_widget import NewsWidget
-from widgets.top_processes_widget import TopProcessesWidget  # НОВЫЙ ИМПОРТ
+from widgets.top_processes_widget import TopProcessesWidget
 from windows.sound_window import SoundWindow
 from windows.brightness_window import BrightnessWindow
 from windows.apps_window import AppsWindow
+from logger import app_logger
 
 class GameModeWidget(QWidget):
     game_updated = pyqtSignal(str)
@@ -30,7 +31,6 @@ class GameModeWidget(QWidget):
     def init_ui(self):
         layout = QVBoxLayout(self)
 
-        # Кнопка открытия центра управления
         control_btn = QPushButton("⚙️ Центр управления")
         control_btn.clicked.connect(self.open_system_control)
         layout.addWidget(control_btn, alignment=Qt.AlignmentFlag.AlignCenter)
@@ -43,20 +43,16 @@ class GameModeWidget(QWidget):
         self.stats_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.stats_label.setStyleSheet("font-size: 12px; margin: 5px;")
 
-        # Вкладки
         self.tab_widget = QTabWidget()
 
-        # Вкладка "Заметки"
         self.notes_edit = QTextEdit()
         self.notes_edit.setPlaceholderText("Введите заметки по игре...")
         self.notes_edit.textChanged.connect(self.on_notes_changed)
         self.tab_widget.addTab(self.notes_edit, "📝 Заметки")
 
-        # Вкладка "Новости"
         self.news_widget = NewsWidget()
         self.tab_widget.addTab(self.news_widget, "📰 Новости")
 
-        # Вкладка "Система" – топ-5 процессов
         self.top_processes = TopProcessesWidget()
         self.tab_widget.addTab(self.top_processes, "⚙️ Система")
 
@@ -84,6 +80,7 @@ class GameModeWidget(QWidget):
         self.apps_win.raise_()
 
     def open_system_control(self):
+        # Ленивый импорт, чтобы избежать ошибок при старте
         from windows.system_control_window import SystemControlWindow
         self.control_win = SystemControlWindow()
         self.control_win.show()
@@ -105,6 +102,7 @@ class GameModeWidget(QWidget):
             self.db.start_session(game_name)
             self.refresh_stats()
             self.news_widget.set_game(game_name)
+            app_logger.info(f"Обнаружена игра: {game_name}")
         else:
             self.current_game_label.setText("Текущая игра: Не игра")
             self.notes_edit.blockSignals(True)
@@ -112,6 +110,7 @@ class GameModeWidget(QWidget):
             self.notes_edit.blockSignals(False)
             self.stats_label.setText("За последнюю неделю: 0 ч 0 мин")
             self.news_widget.set_game("")
+            app_logger.info("Игра не активна")
 
     def on_notes_changed(self):
         if self.current_game:

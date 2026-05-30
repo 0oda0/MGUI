@@ -1,19 +1,17 @@
+# tray_icon.py
 from PyQt6.QtWidgets import QSystemTrayIcon, QMenu
-from PyQt6.QtGui import QIcon, QAction, QPixmap, QPainter, QColor
-from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QIcon, QAction, QPixmap, QColor
 
 class TrayIcon(QSystemTrayIcon):
     def __init__(self, main_window):
         super().__init__()
         self.main_window = main_window
 
-        # Создаём иконку программно (16x16, синий квадрат)
         pixmap = QPixmap(16, 16)
-        pixmap.fill(QColor(0, 120, 215))  # Синий цвет
+        pixmap.fill(QColor(0, 120, 215))
         icon = QIcon(pixmap)
         self.setIcon(icon)
 
-        # Контекстное меню
         self.menu = QMenu()
         show_action = QAction("Показать окно", self)
         show_action.triggered.connect(self.show_window)
@@ -21,34 +19,26 @@ class TrayIcon(QSystemTrayIcon):
         quit_action.triggered.connect(self.quit_app)
 
         self.menu.addAction(show_action)
-        self.menu.addAction(quit_action)
         self.menu.addSeparator()
-        sound_action = QAction("🔊 Звук", self)
-        sound_action.triggered.connect(self.open_sound)
-        brightness_action = QAction("🔆 Яркость", self)
-        brightness_action.triggered.connect(self.open_brightness)
-        apps_action = QAction("🖥️ Окна и приложения", self)
-        apps_action.triggered.connect(self.open_apps)
-        self.menu.addAction(sound_action)
-        self.menu.addAction(brightness_action)
-        self.menu.addAction(apps_action)
+        work_action = QAction("💼 Работа", self)
+        work_action.triggered.connect(lambda: self.switch_mode("work"))
+        game_action = QAction("🎮 Игра", self)
+        game_action.triggered.connect(lambda: self.switch_mode("game"))
+        control_action = QAction("⚙️ Центр управления", self)
+        control_action.triggered.connect(lambda: self.switch_mode("control"))
+        self.menu.addAction(work_action)
+        self.menu.addAction(game_action)
+        self.menu.addAction(control_action)
+        self.menu.addSeparator()
+        self.menu.addAction(quit_action)
 
         self.setContextMenu(self.menu)
         self.activated.connect(self.on_tray_activated)
+        self.show()
 
-        self.show()  # Теперь иконка точно есть
-
-    def open_sound(self):
-        if hasattr(self.main_window, 'game_mode_widget'):
-            self.main_window.game_mode_widget.open_sound_window()
-
-    def open_brightness(self):
-        if hasattr(self.main_window, 'game_mode_widget'):
-            self.main_window.game_mode_widget.open_brightness_window()
-
-    def open_apps(self):
-        if hasattr(self.main_window, 'game_mode_widget'):
-            self.main_window.game_mode_widget.open_apps_window()
+    def switch_mode(self, mode):
+        self.main_window.switch_mode(mode)
+        self.show_window()
 
     def show_window(self):
         self.main_window.show()

@@ -1,0 +1,145 @@
+2026-05-30 21:38:28 | INFO | Запрос прав администратора...
+2026-05-30 21:38:31 | INFO | === MGUI запущено ===
+2026-05-30 21:38:43 | INFO | Запрос прав администратора...
+2026-05-30 21:38:46 | INFO | === MGUI запущено ===
+2026-05-30 21:38:59 | INFO | Запрос прав администратора...
+2026-05-30 21:39:03 | INFO | === MGUI запущено ===
+2026-05-30 21:39:36 | INFO | Запрос прав администратора...
+2026-05-30 21:39:39 | INFO | === MGUI запущено ===
+2026-05-30 21:40:29 | INFO | Запрос прав администратора...
+2026-05-30 21:40:32 | INFO | === MGUI запущено ===
+2026-05-30 21:41:12 | INFO | Запрос прав администратора...
+2026-05-30 21:41:15 | INFO | === MGUI запущено ===
+2026-05-30 21:45:59 | INFO | Запрос прав администратора...
+2026-05-30 21:46:02 | INFO | === MGUI запущено ===
+2026-05-30 21:46:02 | ERROR | Критическая ошибка: 'AudioDevice' object has no attribute 'Activate'
+2026-05-30 21:46:02 | ERROR | Traceback (most recent call last):
+  File "C:\MGUI\main.py", line 35, in main
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "C:\MGUI\main_window.py", line 32, in __init__
+    self.control_widget = ControlCenterWidget()   # обязательно
+                          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MGUI\widgets\control_center_widget.py", line 14, in __init__
+    self.audio = AudioController()
+                 ^^^^^^^^^^^^^^^^^
+  File "C:\MGUI\services\audio_controller.py", line 8, in __init__
+    interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'AudioDevice' object has no attribute 'Activate'
+
+2026-05-30 21:46:07 | INFO | Запрос прав администратора...
+2026-05-30 21:46:10 | INFO | === MGUI запущено ===
+2026-05-30 21:46:11 | ERROR | Критическая ошибка: 'AudioDevice' object has no attribute 'Activate'
+2026-05-30 21:46:11 | ERROR | Traceback (most recent call last):
+  File "C:\MGUI\main.py", line 35, in main
+    window = MainWindow()
+             ^^^^^^^^^^^^
+  File "C:\MGUI\main_window.py", line 32, in __init__
+    self.control_widget = ControlCenterWidget()   # обязательно
+                          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MGUI\widgets\control_center_widget.py", line 14, in __init__
+    self.audio = AudioController()
+                 ^^^^^^^^^^^^^^^^^
+  File "C:\MGUI\services\audio_controller.py", line 8, in __init__
+    interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'AudioDevice' object has no attribute 'Activate'
+
+2026-05-30 21:47:40 | INFO | Запрос прав администратора...
+2026-05-30 21:47:42 | INFO | === MGUI запущено ===
+2026-05-30 21:47:43 | ERROR | Не удалось инициализировать аудиоконтроллер: argument 1: TypeError: 'EDataFlow' object cannot be interpreted as an integer
+2026-05-30 21:47:48 | INFO | Выбрано аудиоустройство: Headphones (HUAWEI FreeClip)
+2026-05-30 21:47:48 | INFO | Загружены аудиоустройства: ['Headphones (HUAWEI FreeClip)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'TOSHIBA-TV (NVIDIA High Definition Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Speakers (ME6S)', 'Headphones (K55)', 'Internal AUX Jack (Intel® Smart Sound Technology for Digital Microphones)', 'NVIDIA Output (NVIDIA High Definition Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Speakers (USB Audio Device)', 'Headphones (HUAWEI FreeBuds Pro 4)', 'Speakers (ME6S)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'ViewSonic PJ (NVIDIA High Definition Audio)', 'Headphones (ME-71)', 'Internal AUX Jack (K55 Hands-Free)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Digital Audio (HDMI) (NVIDIA High Definition Audio)', 'Speakers (USB Audio Device)', 'Speakers (USB Audio Device)', 'Speakers (Realtek(R) Audio)', 'Headphones (ME-71)', 'Headphones (Realtek(R) Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'ActivPanel V6 (NVIDIA High Definition Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'DigitalOutput (NVIDIA High Definition Audio)', 'Headphones (K55)', 'Headphones (Redmi Buds 5 Pro)', 'Speakers (USB Audio Device)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Headphones (ME-71)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Headset (Redmi Buds 5 Pro Hands-Free)', 'TOSHIBA-TV (NVIDIA High Definition Audio)', 'Headphones (K55)', 'Headset (ME-71 Hands-Free)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'DigitalOutput (NVIDIA High Definition Audio)', 'Internal AUX Jack (K55 Hands-Free)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Internal AUX Jack (Redmi Note 8 Pro Hands-Free HF Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Digital Microphones)', 'Speakers (NVIDIA Broadcast)', 'Internal AUX Jack (ME-71 Hands-Free)', 'CloudLink (NVIDIA High Definition Audio)', 'Headset (ME-71 Hands-Free)', 'Headset (K55 Hands-Free)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Headphones (HUAWEI FreeBuds Pro 4)', 'Headphones (Galaxy Buds FE)', 'ATEN_T4KHDMI (NVIDIA High Definition Audio)', 'Headphones (JKS.ZSY)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'VS-44H2 (NVIDIA High Definition Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Headphones (HUAWEI FreeClip)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Speakers (USB Audio Device)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Headphones (Galaxy Buds FE)', 'Headphones (JKS.ZSY)', 'Internal AUX Jack (ME-71 Hands-Free)', 'Digital Audio (HDMI) (High Definition Audio Device)', 'Headphones (Redmi Buds 5 Pro)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Headphones (Redmi Buds 5 Pro)', 'X1240 (NVIDIA High Definition Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'UST-P1 (NVIDIA High Definition Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)', 'Headphones (ME-71)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Speakers (USB Audio Device)', 'Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)', 'Headphones (HUAWEI FreeClip)', 'Speakers (Realtek(R) Audio)', 'Headphones (Realtek(R) Audio)', 'Headset (Redmi Buds 5 Pro Hands-Free)', 'Internal AUX Jack (ME-71)', 'Internal AUX Jack (High Definition Audio Device)', 'Microphone (USB Audio Device)', 'Headset (HUAWEI FreeClip)', 'Microphone (USB Audio Device)', 'Internal AUX Jack (Redmi Buds 5 Pro)', 'Headset (Redmi Buds 5 Pro)', 'Internal AUX Jack (Redmi Note 8 Pro Hands-Free HF Audio)', 'Microphone Array (Intel® Smart Sound Technology for Digital Microphones)', 'Internal AUX Jack (K55 Hands-Free)', 'Internal AUX Jack (NVIDIA High Definition Audio)', 'Microphone (NVIDIA Broadcast)', 'Internal AUX Jack (ME-71 Hands-Free)', 'Internal AUX Jack (ME-71 Hands-Free)', 'Microphone (Realtek(R) Audio)', 'Microphone (USB Audio Device)', 'Internal AUX Jack (K55)', 'Microphone (ME6S)', 'Internal AUX Jack (K55 Hands-Free)', 'Headset (ME-71 Hands-Free)', 'Stereo Mix (Realtek(R) Audio)', 'Headset (ME-71 Hands-Free)', 'Stereo Mix (Realtek(R) Audio)', 'Headset (K55)', 'Microphone (ME6S)', 'Internal AUX Jack (Redmi Buds 5 Pro Hands-Free)', 'Headset (ME-71)', 'Microphone (Realtek(R) Audio)', 'Microphone (USB Audio Device)', 'Internal AUX Jack (ME-71)', 'Microphone (USB Audio Device)', 'Headset (HUAWEI FreeClip)', 'Headset (HUAWEI FreeBuds Pro 4)', 'Headset (K55 Hands-Free)', 'Headset (Galaxy Buds FE)', 'Microphone (USB Audio Device)', 'Internal AUX Jack (K55)']
+2026-05-30 21:47:48 | INFO | Переключение в режим 'Игра'
+2026-05-30 21:47:48 | INFO | Переключение в режим 'Игра'
+2026-05-30 21:47:49 | INFO | Главное окно показано, иконка в трее создана
+2026-05-30 21:48:01 | INFO | Переключение в режим 'Центр управления'
+2026-05-30 21:48:09 | INFO | Переключение в режим 'Работа'
+2026-05-30 21:48:10 | INFO | Переключение в режим 'Центр управления'
+2026-05-30 21:48:10 | INFO | Переключение в режим 'Работа'
+2026-05-30 21:48:11 | INFO | Переключение в режим 'Игра'
+2026-05-30 21:48:12 | INFO | Переключение в режим 'Центр управления'
+2026-05-30 21:49:00 | INFO | Переключение в режим 'Игра'
+2026-05-30 21:49:00 | INFO | Переключение в режим 'Игра'
+2026-05-30 21:49:01 | INFO | Переключение в режим 'Центр управления'
+2026-05-30 21:49:20 | INFO | Переключение в режим 'Игра'
+2026-05-30 21:49:21 | INFO | Переключение в режим 'Работа'
+2026-05-30 21:50:54 | INFO | Запрос прав администратора...
+2026-05-30 21:50:57 | INFO | === MGUI запущено ===
+2026-05-30 21:50:57 | ERROR | Ошибка инициализации аудио: name 'app_logger' is not defined
+2026-05-30 21:50:57 | INFO | Контроллер яркости инициализирован
+2026-05-30 21:51:02 | INFO | Выбрано устройство: Headphones (HUAWEI FreeClip)
+2026-05-30 21:51:02 | INFO | Загружено аудиоустройств: 129
+2026-05-30 21:51:02 | INFO | Переключение в режим 'Работа'
+2026-05-30 21:51:02 | INFO | Главное окно показано, иконка в трее создана
+2026-05-30 21:51:07 | INFO | Переключение в режим 'Центр управления'
+2026-05-30 21:51:18 | INFO | Яркость изменена: 52%
+2026-05-30 21:51:21 | INFO | Яркость изменена: 70%
+2026-05-30 21:51:25 | INFO | Яркость изменена: 69%
+2026-05-30 21:51:32 | INFO | Яркость изменена: 66%
+2026-05-30 21:51:35 | INFO | Яркость изменена: 0%
+2026-05-30 21:52:01 | INFO | Выбрано устройство: Speakers (ME6S)
+2026-05-30 21:52:03 | INFO | Выбрано устройство: Headphones (HUAWEI FreeClip)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: TOSHIBA-TV (NVIDIA High Definition Audio)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Speakers (ME6S)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Headphones (K55)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for Digital Microphones)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: NVIDIA Output (NVIDIA High Definition Audio)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Speakers (USB Audio Device)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Headphones (HUAWEI FreeBuds Pro 4)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Speakers (ME6S)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: ViewSonic PJ (NVIDIA High Definition Audio)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Headphones (ME-71)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Internal AUX Jack (K55 Hands-Free)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Digital Audio (HDMI) (NVIDIA High Definition Audio)
+2026-05-30 21:53:32 | INFO | Выбрано устройство: Speakers (USB Audio Device)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Speakers (Realtek(R) Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Headphones (ME-71)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Headphones (Realtek(R) Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: ActivPanel V6 (NVIDIA High Definition Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: DigitalOutput (NVIDIA High Definition Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Headphones (K55)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Headphones (Redmi Buds 5 Pro)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Speakers (USB Audio Device)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Speakers (USB Audio Device)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Headphones (Redmi Buds 5 Pro)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Headphones (K55)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: DigitalOutput (NVIDIA High Definition Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: ActivPanel V6 (NVIDIA High Definition Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Headphones (Realtek(R) Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Headphones (ME-71)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Speakers (Realtek(R) Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Speakers (USB Audio Device)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Digital Audio (HDMI) (NVIDIA High Definition Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:33 | INFO | Выбрано устройство: Internal AUX Jack (K55 Hands-Free)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Headphones (ME-71)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: ViewSonic PJ (NVIDIA High Definition Audio)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Speakers (ME6S)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Headphones (HUAWEI FreeBuds Pro 4)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Speakers (USB Audio Device)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: NVIDIA Output (NVIDIA High Definition Audio)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for Digital Microphones)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Headphones (K55)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Speakers (ME6S)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: TOSHIBA-TV (NVIDIA High Definition Audio)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for Bluetooth® Audio)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Internal AUX Jack (Intel® Smart Sound Technology for USB Audio)
+2026-05-30 21:53:34 | INFO | Выбрано устройство: Headphones (HUAWEI FreeClip)
+2026-05-30 21:53:36 | INFO | Переключение в режим 'Игра'
+2026-05-30 21:53:37 | INFO | Переключение в режим 'Работа'

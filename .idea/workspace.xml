@@ -4,17 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6736ef82-3624-483a-b33a-a15feddf70ce" name="Changes" comment="v0.7: Added top-5 processes monitor (CPU/Memory) in game mode system tab, fixed audio controller and brightness error handling, improved UI. Full game mode with notes, news, system monitor.">
-      <change afterPath="$PROJECT_DIR$/services/pinned_apps_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/pinned_apps_widget.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/quick_panel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/windows/system_control_window.py" afterDir="false" />
+    <list default="true" id="6736ef82-3624-483a-b33a-a15feddf70ce" name="Changes" comment="v0.8: Added quick panel with top-5 processes and pinned apps, unified system control window (audio, brightness, pinned apps). Removed separate windows, improved UI.">
+      <change afterPath="$PROJECT_DIR$/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/widgets/control_center_widget.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dialogs/app_picker_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/dialogs/app_picker_dialog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/config_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/audio_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/audio_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tray_icon.py" beforeDir="false" afterPath="$PROJECT_DIR$/tray_icon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/widgets/game_mode_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/game_mode_widget.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/widgets/top_processes_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/top_processes_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets/pinned_apps_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/pinned_apps_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets/sidebar.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/sidebar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets/tasks_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/tasks_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets/timer_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/timer_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets/work_mode_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/work_mode_widget.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +48,9 @@
     "accountId": "6717d493-dd74-4384-8833-b14fc7c6e0bc"
   }
 }]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 5
 }]]></component>
@@ -167,8 +175,27 @@
       <option name="project" value="LOCAL" />
       <updated>1780164777457</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="v0.8: Added quick panel with top-5 processes and pinned apps, unified system control window (audio, brightness, pinned apps). Removed separate windows, improved UI.">
+      <option name="closed" value="true" />
+      <created>1780165286546</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1780165286546</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v0.1: Minimal GUI with system tray and admin rights (fixed tray icon)" />
@@ -178,6 +205,7 @@
     <MESSAGE value="v0.5: Added game tracking service (active window detection), game session logging, weekly stats, and notes per game." />
     <MESSAGE value="v0.6: Added game news (RSS), separate windows for sound control, circular brightness control, apps/windows manager (open windows list, pinned apps). Integrated into game mode." />
     <MESSAGE value="v0.7: Added top-5 processes monitor (CPU/Memory) in game mode system tab, fixed audio controller and brightness error handling, improved UI. Full game mode with notes, news, system monitor." />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.7: Added top-5 processes monitor (CPU/Memory) in game mode system tab, fixed audio controller and brightness error handling, improved UI. Full game mode with notes, news, system monitor." />
+    <MESSAGE value="v0.8: Added quick panel with top-5 processes and pinned apps, unified system control window (audio, brightness, pinned apps). Removed separate windows, improved UI." />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.8: Added quick panel with top-5 processes and pinned apps, unified system control window (audio, brightness, pinned apps). Removed separate windows, improved UI." />
   </component>
 </project>

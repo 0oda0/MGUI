@@ -1,11 +1,13 @@
-# main_window.py (обновлённый)
+# main_window.py
 from PyQt6.QtWidgets import QMainWindow, QHBoxLayout, QWidget, QStackedWidget
 from PyQt6.QtCore import Qt
 from widgets.sidebar import Sidebar
 from widgets.work_mode_widget import WorkModeWidget
 from widgets.game_mode_widget import GameModeWidget
+from widgets.control_center_widget import ControlCenterWidget
 from widgets.quick_panel import QuickPanel
 from config_manager import ConfigManager
+from logger import app_logger
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -27,11 +29,15 @@ class MainWindow(QMainWindow):
         self.stack = QStackedWidget()
         self.work_widget = WorkModeWidget()
         self.game_widget = GameModeWidget()
-        self.game_mode_widget = self.game_widget
-        self.stack.addWidget(self.work_widget)
-        self.stack.addWidget(self.game_widget)
+        self.control_widget = ControlCenterWidget()   # обязательно
 
-        self.quick_panel = QuickPanel()  # новая правая панель
+        self.stack.addWidget(self.work_widget)    # index 0
+        self.stack.addWidget(self.game_widget)    # index 1
+        self.stack.addWidget(self.control_widget) # index 2
+
+        self.game_mode_widget = self.game_widget
+
+        self.quick_panel = QuickPanel()
 
         main_layout.addWidget(self.sidebar)
         main_layout.addWidget(self.stack, 1)
@@ -44,9 +50,17 @@ class MainWindow(QMainWindow):
         if mode == "work":
             self.stack.setCurrentIndex(0)
             self.sidebar.set_current_mode("work")
-        else:
+            app_logger.info("Переключение в режим 'Работа'")
+        elif mode == "game":
             self.stack.setCurrentIndex(1)
             self.sidebar.set_current_mode("game")
+            app_logger.info("Переключение в режим 'Игра'")
+        elif mode == "control":
+            self.stack.setCurrentIndex(2)
+            self.sidebar.set_current_mode("control")
+            app_logger.info("Переключение в режим 'Центр управления'")
+        else:
+            return
         self.config.set("current_mode", mode)
 
     def closeEvent(self, event):
@@ -54,5 +68,6 @@ class MainWindow(QMainWindow):
             "x": self.x(), "y": self.y(),
             "width": self.width(), "height": self.height()
         })
+        app_logger.info("Окно скрыто в трей")
         event.ignore()
         self.hide()

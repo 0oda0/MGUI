@@ -2,6 +2,7 @@
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QProgressBar
 from PyQt6.QtCore import QTimer, Qt, pyqtSignal
 from PyQt6.QtGui import QFont
+from logger import app_logger
 
 class TimerWidget(QWidget):
     session_completed = pyqtSignal(int)  # излучается при остановке таймера, передаёт секунды
@@ -87,12 +88,14 @@ class TimerWidget(QWidget):
             self.running = True
             self.timer.start(1000)
             self.update_buttons()
+            app_logger.info("Таймер запущен")
 
     def pause(self):
         if self.running:
             self.running = False
             self.timer.stop()
             self.update_buttons()
+            app_logger.info("Таймер на паузе")
 
     def reset(self):
         self.running = False

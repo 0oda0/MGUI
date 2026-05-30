@@ -16,7 +16,7 @@ class ConfigManager:
 
     def get_default_config(self):
         return {
-            "current_mode": "work",  # work / game
+            "current_mode": "work",  # work / game / control
             "window_geometry": None,
             "theme": "dark"
         }

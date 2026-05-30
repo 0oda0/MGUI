@@ -4,6 +4,7 @@ from PyQt6.QtCore import Qt
 from services.pinned_apps_manager import PinnedAppsManager
 from dialogs.app_picker_dialog import AppPickerDialog
 import os
+from logger import app_logger
 
 class PinnedAppsWidget(QWidget):
     def __init__(self):
@@ -60,6 +61,7 @@ class PinnedAppsWidget(QWidget):
             if path:
                 self.manager.add(name, path)
                 self.refresh_list()
+                app_logger.info(f"Закреплено приложение: {name} ({path})")
 
     def remove_app(self):
         item = self.list.currentItem()
@@ -67,6 +69,7 @@ class PinnedAppsWidget(QWidget):
             path = item.data(Qt.ItemDataRole.UserRole)
             self.manager.remove(path)
             self.refresh_list()
+        app_logger.info(f"Удалено из закреплённых: {path}")
 
     def show_context_menu(self, pos):
         item = self.list.itemAt(pos)

@@ -4,12 +4,13 @@ from PyQt6.QtCore import Qt
 from widgets.timer_widget import TimerWidget
 from widgets.tasks_table import TasksTable
 from database.db_manager import DatabaseManager
+from logger import app_logger  # ДОБАВЛЕН ИМПОРТ
 
 class WorkModeWidget(QWidget):
     def __init__(self):
         super().__init__()
         self.db = DatabaseManager()
-        self.timer_widget = TimerWidget()          # перенесено в __init__
+        self.timer_widget = TimerWidget()
         self.tasks_table = TasksTable()
         self.stats_label = QLabel("Сегодня отработано: 0 ч 0 мин")
         self.save_btn = QPushButton("Завершить сессию и сохранить")
@@ -25,7 +26,6 @@ class WorkModeWidget(QWidget):
 
         splitter = QSplitter(Qt.Orientation.Vertical)
 
-        # Верхняя часть: таймер и статистика
         top_widget = QWidget()
         top_layout = QVBoxLayout(top_widget)
 
@@ -40,7 +40,6 @@ class WorkModeWidget(QWidget):
         top_layout.addWidget(self.stats_label)
         top_layout.addWidget(self.save_btn, alignment=Qt.AlignmentFlag.AlignCenter)
 
-        # Нижняя часть: таблица задач
         bottom_widget = QWidget()
         bottom_layout = QVBoxLayout(bottom_widget)
         tasks_label = QLabel("Мои задачи")
@@ -60,9 +59,11 @@ class WorkModeWidget(QWidget):
     def on_session_completed(self, seconds: int):
         self.db.add_work_session(seconds)
         self.update_today_stats()
+        app_logger.info(f"Рабочая сессия сохранена: {seconds} сек.")
 
     def save_current_session(self):
         self.timer_widget.stop_and_save()
+        app_logger.info("Рабочая сессия завершена вручную")
 
     def update_today_stats(self):
         seconds = self.db.get_today_seconds()
