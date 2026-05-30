@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6736ef82-3624-483a-b33a-a15feddf70ce" name="Changes" comment="v0.1: Minimal GUI with system tray and admin rights (fixed tray icon)">
-      <change afterPath="$PROJECT_DIR$/config_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/game_mode_widget.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/sidebar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/work_mode_widget.py" afterDir="false" />
+    <list default="true" id="6736ef82-3624-483a-b33a-a15feddf70ce" name="Changes" comment="v0.2: Added sidebar, work/game mode switching, config persistence">
+      <change afterPath="$PROJECT_DIR$/database/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/work_session.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/widgets/timer_widget.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_window.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +58,11 @@
     "ignore.virus.scanning.warn.message": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\MGUI" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="MGUI" />
@@ -107,11 +111,20 @@
       <option name="project" value="LOCAL" />
       <updated>1780155842718</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v0.2: Added sidebar, work/game mode switching, config persistence">
+      <option name="closed" value="true" />
+      <created>1780156008886</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1780156008886</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v0.1: Minimal GUI with system tray and admin rights (fixed tray icon)" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.1: Minimal GUI with system tray and admin rights (fixed tray icon)" />
+    <MESSAGE value="v0.2: Added sidebar, work/game mode switching, config persistence" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.2: Added sidebar, work/game mode switching, config persistence" />
   </component>
 </project>
